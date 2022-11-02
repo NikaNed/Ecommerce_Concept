@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.main_screen
+package com.example.ecommerceconcept.presentation.main_screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.ecommerceconcept.databinding.FragmentCartBinding
 
-class ProfileFragment: Fragment() {
+class CartFragment: Fragment() {
 
     private var _binding: FragmentCartBinding? = null
     private val binding: FragmentCartBinding

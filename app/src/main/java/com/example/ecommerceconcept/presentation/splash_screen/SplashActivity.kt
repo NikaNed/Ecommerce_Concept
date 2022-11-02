@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.splash_screen
+package com.example.ecommerceconcept.presentation.splash_screen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +13,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Thread.sleep(1000)
         setTheme(R.style.Theme_EcommerceConcept)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

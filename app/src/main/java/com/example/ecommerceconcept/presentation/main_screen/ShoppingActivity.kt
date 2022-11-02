@@ -1,9 +1,10 @@
-package com.example.ecommerceconcept
+package com.example.ecommerceconcept.presentation.main_screen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ActivityShoppingBinding
 
 class ShoppingActivity : AppCompatActivity() {

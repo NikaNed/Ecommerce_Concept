@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.main_screen
+package com.example.ecommerceconcept.presentation.main_screen
 
 import android.os.Bundle
 import android.view.LayoutInflater

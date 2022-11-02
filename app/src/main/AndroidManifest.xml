@@ -14,10 +14,10 @@
         android:theme="@style/Theme.EcommerceConcept"
         tools:targetApi="31">
         <activity
-            android:name=".ShoppingActivity"
+            android:name=".presentation.main_screen.ShoppingActivity"
             android:exported="false" />
         <activity
-            android:name=".splash_screen.SplashActivity"
+            android:name=".presentation.splash_screen.SplashActivity"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>
