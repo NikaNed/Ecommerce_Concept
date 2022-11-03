@@ -14,7 +14,6 @@
         android:layout_marginEnd="15dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -27,6 +26,17 @@
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_view_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mark_pro_regular"
+            android:text="view all"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="-5dp"
+            android:textColor="@color/orange"
+            android:textSize="12sp"/>
 
     </LinearLayout>
 
@@ -53,9 +63,49 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
+        app:layout_constraintTop_toBottomOf="@id/constraint_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout">
+
+        <ImageView
+            android:id="@+id/search_box_background"
+            android:layout_width="350dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_search_box_background"
+            app:layout_constraintStart_toStartOf="@+id/constraint_search"
+            app:layout_constraintTop_toTopOf="@+id/constraint_search" />
+
+        <ImageView
+            android:id="@+id/ic_search"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_search"
+            app:tint="@color/orange"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@+id/constraint_search"
+            app:layout_constraintTop_toTopOf="@+id/constraint_search" />
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mark_pro_regular"
+            android:layout_marginStart="15dp"
+            android:text="Search"
+            android:textColor="@color/grey"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/ic_search"
+            app:layout_constraintTop_toTopOf="@+id/ic_search" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
