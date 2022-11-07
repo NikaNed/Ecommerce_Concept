@@ -1,10 +1,9 @@
 package com.example.ecommerceconcept.presentation.main_screen.shopping
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentHomeBinding
 import com.example.ecommerceconcept.presentation.adapters.CategoryViewpagerAdapter
@@ -37,6 +36,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewPager()
+
+        binding.btFilter.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToFilterFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupViewPager() {

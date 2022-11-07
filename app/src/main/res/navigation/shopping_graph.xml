@@ -8,8 +8,13 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.ecommerceconcept.presentation.main_screen.shopping.HomeFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        android:label="homeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_filterFragment"
+            app:destination="@id/filterFragment"
+            />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.ecommerceconcept.presentation.main_screen.shopping.CartFragment"
@@ -25,4 +30,14 @@
         android:name="com.example.ecommerceconcept.presentation.main_screen.shopping.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"/>
+    <dialog
+        android:id="@+id/filterFragment"
+        android:name="com.example.ecommerceconcept.presentation.main_screen.FilterFragment"
+        android:label="fragment_filter"
+        tools:layout="@layout/fragment_filter"/>
+
+
+
+
+
 </navigation>

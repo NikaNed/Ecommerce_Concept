@@ -4,12 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentPhoneBinding
+import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
 import com.example.ecommerceconcept.presentation.adapters.HotSalesAdapter
 import com.example.ecommerceconcept.presentation.main_screen.PhoneViewModel
+import kotlinx.android.synthetic.main.rv_item_best_seller.view.*
 
 class PhoneFragment : BaseCategoryFragment() {
 
@@ -17,7 +22,7 @@ class PhoneFragment : BaseCategoryFragment() {
     private val binding: FragmentPhoneBinding
         get() = _binding ?: throw RuntimeException("FragmentPhone == null")
 
-    private lateinit var hotSalesAdapter: HotSalesAdapter
+
     private lateinit var viewModel: PhoneViewModel
 //    private lateinit var viewModelFactory: ViewModelFactory
 
@@ -37,9 +42,10 @@ class PhoneFragment : BaseCategoryFragment() {
 
         viewModel = ViewModelProvider(this)[PhoneViewModel::class.java]
         viewModel.getHomeStoreInfo()
+        viewModel.getBestSellerInfo()
 
         viewModel.homeStoreInfo.observe(viewLifecycleOwner) {
-            hotSalesAdapter = HotSalesAdapter()
+           val hotSalesAdapter = HotSalesAdapter()
             with(binding) {
                 rvHotSales.layoutManager = LinearLayoutManager(
                     requireContext(),
@@ -50,20 +56,20 @@ class PhoneFragment : BaseCategoryFragment() {
             }
         }
 
+        viewModel.bestSellerInfo.observe(viewLifecycleOwner) {
+            val bestSellerAdapter = BestSellerAdapter()
+            with(binding) {
+                rvBestSeller.layoutManager = GridLayoutManager(requireContext(), 2)
+                rvBestSeller.adapter = bestSellerAdapter
+                bestSellerAdapter.submitList(it)
+            }
+        }
+
         viewModel.progressBar.observe(viewLifecycleOwner){
             binding.progressBar.isVisible = it
         }
-    }
 
-//    private fun setUpHotSalesRV() {
-//        hotSalesAdapter = HotSalesAdapter()
-//        binding.rvHotSales.apply {
-//            layoutManager = LinearLayoutManager(
-//                requireContext(),
-//                LinearLayoutManager.HORIZONTAL,
-//                false
-//            )
-//            adapter = hotSalesAdapter
-//        }
-//    }
+
+
+    }
 }

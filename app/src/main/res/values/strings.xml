@@ -2,4 +2,11 @@
     <string name="app_name">Ecommerce Concept</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="brands_phone">
+        <item>Samsung</item>
+        <item>Apple</item>
+        <item>Xiaomi</item>
+        <item>Motorola</item>
+    </string-array>
 </resources>
