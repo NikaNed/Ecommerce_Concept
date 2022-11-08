@@ -1,6 +1,7 @@
-package com.example.ecommerceconcept.data
+package com.example.ecommerceconcept.data.network.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class BestSeller(
     @SerializedName("discount_price")
@@ -15,4 +16,4 @@ data class BestSeller(
     val price_without_discount: Int,
     @SerializedName("title")
     val title: String
-)
+) : Serializable

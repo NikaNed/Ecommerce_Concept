@@ -4,9 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ecommerceconcept.data.BestSeller
-import com.example.ecommerceconcept.data.HomeStore
-import com.example.ecommerceconcept.data.PhoneInfoDto
+import com.example.ecommerceconcept.data.network.model.BestSeller
+import com.example.ecommerceconcept.data.network.model.HomeStore
+import com.example.ecommerceconcept.data.network.model.PhoneInfoDto
 import com.example.ecommerceconcept.data.network.ApiService
 import retrofit2.Call
 import retrofit2.Callback

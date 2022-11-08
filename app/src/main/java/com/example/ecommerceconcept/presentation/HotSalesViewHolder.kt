@@ -2,14 +2,11 @@ package com.example.ecommerceconcept.presentation
 
 import android.annotation.SuppressLint
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ecommerceconcept.data.HomeStore
+import com.example.ecommerceconcept.data.network.model.HomeStore
 import com.example.ecommerceconcept.databinding.RvItemHotSalesBinding
-import com.example.ecommerceconcept.domain.PhoneItem
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_books.view.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.android.synthetic.main.rv_item_hot_sales.view.*
 
 class HotSalesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val binding = RvItemHotSalesBinding.bind(view)
@@ -19,5 +16,8 @@ class HotSalesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         tvTitlePhone.text = item.title
         tvSubtitlePhone.text = item.subtitle
         Picasso.get().load(item.picture).into(imAd)
+        if(item.is_new == null){
+            imNew.isVisible = false
+        }
     }
 }

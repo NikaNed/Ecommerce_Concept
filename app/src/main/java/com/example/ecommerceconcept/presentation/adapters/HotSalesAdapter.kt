@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.data.HomeStore
+import com.example.ecommerceconcept.data.network.model.HomeStore
 import com.example.ecommerceconcept.presentation.HotSalesDiffCallback
 import com.example.ecommerceconcept.presentation.HotSalesViewHolder
 

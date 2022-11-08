@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerceconcept.R
+import com.example.ecommerceconcept.data.network.model.BestSeller
 import com.example.ecommerceconcept.databinding.FragmentPhoneBinding
 import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
 import com.example.ecommerceconcept.presentation.adapters.HotSalesAdapter
+import com.example.ecommerceconcept.presentation.detail_screen.PhoneDetailFragment
 import com.example.ecommerceconcept.presentation.main_screen.PhoneViewModel
-import kotlinx.android.synthetic.main.rv_item_best_seller.view.*
 
-class PhoneFragment : BaseCategoryFragment() {
+class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListener {
 
     private var _binding: FragmentPhoneBinding? = null
     private val binding: FragmentPhoneBinding
@@ -44,8 +44,10 @@ class PhoneFragment : BaseCategoryFragment() {
         viewModel.getHomeStoreInfo()
         viewModel.getBestSellerInfo()
 
+
+
         viewModel.homeStoreInfo.observe(viewLifecycleOwner) {
-           val hotSalesAdapter = HotSalesAdapter()
+            val hotSalesAdapter = HotSalesAdapter()
             with(binding) {
                 rvHotSales.layoutManager = LinearLayoutManager(
                     requireContext(),
@@ -57,7 +59,7 @@ class PhoneFragment : BaseCategoryFragment() {
         }
 
         viewModel.bestSellerInfo.observe(viewLifecycleOwner) {
-            val bestSellerAdapter = BestSellerAdapter()
+            val bestSellerAdapter = BestSellerAdapter(this)
             with(binding) {
                 rvBestSeller.layoutManager = GridLayoutManager(requireContext(), 2)
                 rvBestSeller.adapter = bestSellerAdapter
@@ -65,11 +67,27 @@ class PhoneFragment : BaseCategoryFragment() {
             }
         }
 
-        viewModel.progressBar.observe(viewLifecycleOwner){
+        viewModel.progressBar.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = it
         }
+    }
 
+    override fun onClick(product:BestSeller) {
+//        Toast.makeText(requireContext(), "${product.title}", Toast.LENGTH_SHORT).show()
 
+//        val productNavigation =
+//            PhoneFragmentDirections.actionPhoneFragmentToPhoneDetailFragment2()
+//        findNavController().navigate(productNavigation)
 
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.shoppingHostFragment, PhoneDetailFragment.newInstance())
+            .addToBackStack(null)
+            .commit()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

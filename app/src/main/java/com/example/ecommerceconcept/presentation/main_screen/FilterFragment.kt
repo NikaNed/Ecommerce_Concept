@@ -5,12 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentFilterBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -53,18 +52,6 @@ class FilterFragment : BottomSheetDialogFragment() {
         val adapterSize = ArrayAdapter(requireContext(),
             android.R.layout.simple_spinner_dropdown_item, phoneSize) as SpinnerAdapter
         binding.spinnerSize.adapter = adapterSize
-
-//        binding.spinnerBrand.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//            override fun onItemSelected(parent: AdapterView<*>,
-//                                        view: View, position: Int, id: Long) {
-//                Toast.makeText(requireActivity(),
-//                    "Привет", Toast.LENGTH_SHORT).show()
-//            }
-//
-//            override fun onNothingSelected(parent: AdapterView<*>) {
-//                // write code to perform some action
-//            }
-//        }
 
         binding.apply {
             btDone.setOnClickListener { findNavController().popBackStack() }
