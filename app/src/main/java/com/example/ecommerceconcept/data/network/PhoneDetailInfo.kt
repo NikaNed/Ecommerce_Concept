@@ -2,19 +2,19 @@ package com.example.ecommerceconcept.data.network
 
 import com.google.gson.annotations.SerializedName
 
-data class PhoneDetailInfo(
+ data class PhoneDetailInfo(
     @SerializedName("CPU")
-    val CPU: String,
+    val CPU: String? = null,
     @SerializedName("camera")
     val camera: String,
     @SerializedName("capacity")
-    val capacity: List<String>,
+    val capacity: List<String>? = null,
     @SerializedName("color")
-    val color: List<String>,
+    val color: List<String>? = null,
     @SerializedName("id")
     val id: String,
     @SerializedName("images")
-    val images: List<String>,
+    val images: List<String>? = null,
     @SerializedName("isFavorites")
     val isFavorites: Boolean,
     @SerializedName("price")

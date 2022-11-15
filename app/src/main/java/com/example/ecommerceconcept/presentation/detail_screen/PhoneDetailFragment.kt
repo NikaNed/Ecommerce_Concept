@@ -8,8 +8,10 @@ import android.widget.LinearLayout
 import android.widget.RatingBar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerceconcept.databinding.FragmentPhoneDetailBinding
 import com.example.ecommerceconcept.presentation.adapters.DetailViewpagerAdapter
+import com.example.ecommerceconcept.presentation.adapters.PhoneDetailAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class PhoneDetailFragment : Fragment() {
@@ -56,18 +58,25 @@ class PhoneDetailFragment : Fragment() {
 
 
         viewModel.detailInfo.observe(viewLifecycleOwner) {
-//            val hotSalesAdapter = HotSalesAdapter()
-//            with(binding) {
-//                rvHotSales.layoutManager = LinearLayoutManager(
-//                    requireContext(),
-//                    LinearLayoutManager.HORIZONTAL,
-//                    false)
-//                rvHotSales.adapter = hotSalesAdapter
-//                hotSalesAdapter.submitList(it)
-
-                binding.tvTitleDetail.text = it.title
+            val detailAdapter = PhoneDetailAdapter()
+            with(binding) {
+                rvDetail.set3DItem(true)
+                rvDetail.setInfinite(true)
+                rvDetail.setAlpha(true)
+                rvDetail.setFlat(true)
+                rvDetail.setIsScrollingEnabled(true)
             }
+            binding.rvDetail.adapter = detailAdapter
+            detailAdapter.submitList(listOf(it))
+
+
+            binding.tvTitleDetail.text = it.title
+            binding.btAddCart.text = "Add to Card           " + "$" + "%,d".format(it.price)
+            binding.btDetailFavorite.textOn = it.isFavorites.toString()
+
+
         }
+    }
 
     private fun setUpViewPager() {
         val viewPagerAdapter =
@@ -88,6 +97,7 @@ class PhoneDetailFragment : Fragment() {
         }.attach()
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -101,3 +111,6 @@ class PhoneDetailFragment : Fragment() {
 }
 
 
+
+//                val carouselLayoutManager = rvDetail.getCarouselLayoutManager()
+//                val currentlyCenterPosition = rvDetail.getSelectedPosition()

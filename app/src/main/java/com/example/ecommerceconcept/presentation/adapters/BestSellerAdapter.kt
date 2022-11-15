@@ -8,7 +8,8 @@ import com.example.ecommerceconcept.data.network.model.BestSeller
 import com.example.ecommerceconcept.presentation.BestSellerDiffCallback
 import com.example.ecommerceconcept.presentation.BestSellerViewHolder
 
-class BestSellerAdapter (private val listener: BestSellerListener): ListAdapter<BestSeller, BestSellerViewHolder>(BestSellerDiffCallback) {
+class BestSellerAdapter (private val listener: BestSellerListener):
+    ListAdapter<BestSeller, BestSellerViewHolder>(BestSellerDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerViewHolder {
 

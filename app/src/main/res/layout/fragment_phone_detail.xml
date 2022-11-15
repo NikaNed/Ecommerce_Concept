@@ -50,112 +50,257 @@
             app:iconPadding="0dp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_detail"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_header"
-        tools:listitem="@layout/rv_item_detail" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_detail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardElevation="@dimen/cardview_default_elevation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_detail">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_detail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tv_title_detail"
-                android:layout_width="wrap_content"
+
+            <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+                android:id="@+id/rv_detail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="38dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/mark_pro_medium"
-                android:textColor="@color/blue_dark"
-                android:textSize="24sp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="50dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Galaxy Note 20 Ultra" />
+                tools:listitem="@layout/rv_item_detail" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/bt_done"
-                android:layout_width="40dp"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_bottom_sheet"
+                app:cardElevation="@dimen/cardview_default_elevation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_detail">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_title_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="38dp"
+
+                        android:fontFamily="@font/mark_pro_medium"
+                        android:textColor="@color/blue_dark"
+                        android:textSize="24sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Galaxy Note 20 Ultra" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_favorite"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/blue_dark"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/cardview_default_elevation"
+                        app:layout_constraintStart_toEndOf="@+id/tv_title_detail"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ToggleButton
+                            android:id="@+id/bt_detail_favorite"
+                            android:layout_width="14dp"
+                            android:layout_height="13dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@drawable/rv_detail_image_selector"
+                            android:textOff=""
+                            android:textOn=""
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.cardview.widget.CardView>
+
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:theme="@style/AppRatingBar"
+                        app:layout_constraintStart_toStartOf="@+id/tv_title_detail"
+                        app:layout_constraintTop_toBottomOf="@id/tv_title_detail"
+                        tools:theme="@style/AppRatingBar" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:background="@color/white"
+                    android:textAllCaps="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/parent"
+                    app:tabSelectedTextColor="@color/blue_dark"
+                    app:tabTextColor="@color/blue_dark" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="45dp"
-                app:backgroundTint="@color/blue_dark"
-                app:cornerRadius="10dp"
-                app:icon="@drawable/ic_heart"
-                app:iconGravity="textEnd"
-                app:iconPadding="0dp"
-                app:layout_constraintStart_toEndOf="@+id/tv_title_detail"
-                app:layout_constraintTop_toTopOf="@+id/tv_title_detail" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cv_detail"
+                app:layout_constraintStart_toStartOf="parent">
 
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:theme="@style/AppRatingBar"
-                app:layout_constraintStart_toStartOf="@+id/tv_title_detail"
-                app:layout_constraintTop_toBottomOf="@id/tv_title_detail"
-                tools:theme="@style/AppRatingBar" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
 
+                    <ImageView
+                        android:id="@+id/processor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_processor"
+                        app:layout_constraintEnd_toStartOf="@id/camera"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_camera"
+                        app:layout_constraintEnd_toStartOf="@id/memory"
+                        app:layout_constraintStart_toEndOf="@id/processor"
+                        app:layout_constraintTop_toTopOf="@id/processor" />
+
+                    <ImageView
+                        android:id="@+id/memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_memory"
+                        app:layout_constraintEnd_toStartOf="@id/storage"
+                        app:layout_constraintStart_toEndOf="@id/camera"
+                        app:layout_constraintTop_toTopOf="@id/processor" />
+
+                    <ImageView
+                        android:id="@+id/storage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_storage"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/memory"
+                        app:layout_constraintTop_toTopOf="@id/processor" />
+
+                    <TextView
+                        android:id="@+id/tv_processor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/mark_pro_medium"
+                        android:textColor="@color/grey_text"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="@id/processor"
+                        app:layout_constraintStart_toStartOf="@id/processor"
+                        app:layout_constraintTop_toBottomOf="@id/processor"
+                        tools:text="exynos 990" />
+
+                    <TextView
+                        android:id="@+id/tv_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grey_text"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/camera"
+                        app:layout_constraintStart_toStartOf="@id/camera"
+                        app:layout_constraintTop_toTopOf="@id/tv_processor"
+                        tools:text="108+12mp" />
+
+                    <TextView
+                        android:id="@+id/tv_memory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grey_text"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="@id/memory"
+                        app:layout_constraintStart_toStartOf="@id/memory"
+                        app:layout_constraintTop_toBottomOf="@id/memory"
+                        app:layout_constraintTop_toTopOf="@id/tv_processor"
+                        tools:text="8 GB" />
+
+                    <TextView
+                        android:id="@+id/tv_storage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/grey_text"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="@id/storage"
+                        app:layout_constraintStart_toStartOf="@id/storage"
+                        app:layout_constraintTop_toBottomOf="@id/storage"
+                        app:layout_constraintTop_toTopOf="@id/tv_processor"
+                        tools:text="256 GB" />
+
+                    <TextView
+                        android:id="@+id/tv_select_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="29dp"
+                        android:fontFamily="@font/mark_pro_medium"
+                        android:text="Select color and capacity"
+                        android:textColor="@color/blue_dark"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="@+id/tv_processor"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_processor" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout_detail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="110dp"
-            android:background="@color/white"
-            android:textAllCaps="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parent"
-            app:tabSelectedTextColor="@color/blue_dark"
-            app:tabTextColor="@color/blue_dark" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPager_detail"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </androidx.cardview.widget.CardView>
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_add_cart"
         android:layout_width="355dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/mark_pro_bold"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:backgroundTint="@color/orange"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cv_detail"
-        app:layout_constraintStart_toStartOf="@+id/cv_detail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="Add to Cart          $1,500.00" />
 
 
