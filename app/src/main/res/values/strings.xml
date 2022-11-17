@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Ecommerce Concept</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+<!--    <string name="exynos_990">Exynos 990</string>-->
+<!--    <string name="mp_108_12">108 + 12 mp</string>-->
+<!--    <string name="gb_8">8 GB</string>-->
+<!--    <string name="gb_256">256 GB</string>-->
+<!--    <string name="select_color_and_capacity">Select color and capacity</string>-->
+
+    <string-array name="brands_phone">
+        <item>Samsung</item>
+        <item>Apple</item>
+        <item>Xiaomi</item>
+        <item>Motorola</item>
+    </string-array>
 </resources>

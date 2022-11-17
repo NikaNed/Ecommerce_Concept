@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.ecommerceconcept">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,8 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcommerceConcept"
         tools:targetApi="31">
+
         <activity
-            android:name=".splash_screen.SplashActivity"
+            android:name=".presentation.main_screen.ShoppingActivity"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>
@@ -23,9 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"/>
-
     </application>
 
 </manifest>
