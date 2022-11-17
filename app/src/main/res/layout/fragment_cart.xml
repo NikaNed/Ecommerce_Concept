@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_medium"
-            android:text="Add address"
+            android:text="@string/add_address"
             android:layout_marginEnd="15dp"
             android:textColor="@color/blue_dark"
             android:textSize="15sp"
@@ -60,7 +60,7 @@
         android:id="@+id/tv_my_cart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Cart"
+        android:text="@string/my_cart"
         android:fontFamily="@font/mark_pro_bold"
         android:textSize="35dp"
         android:layout_marginStart="25dp"
@@ -106,7 +106,7 @@
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total"
+            android:text="@string/total"
             android:textSize="15sp"
             android:fontFamily="@font/mark_pro_regular"
             android:textColor="@color/white"
@@ -120,7 +120,7 @@
             android:id="@+id/delivery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delivery"
+            android:text="@string/delivery"
             android:textSize="15sp"
             android:fontFamily="@font/mark_pro_regular"
             android:textColor="@color/white"
@@ -179,7 +179,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Checkout" />
+            android:text="@string/checkout" />
 
         <ProgressBar
             android:id="@+id/progressBar"

@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Ecommerce Concept"
 include ':app'
-include ':network'

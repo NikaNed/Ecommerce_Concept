@@ -3,9 +3,7 @@ package com.example.ecommerceconcept.presentation.detail_screen
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout
 import android.widget.RatingBar
 import androidx.core.view.isVisible
@@ -17,6 +15,7 @@ import com.example.ecommerceconcept.presentation.adapters.DetailViewpagerAdapter
 import com.example.ecommerceconcept.presentation.adapters.PhoneDetailAdapter
 import com.example.ecommerceconcept.presentation.main_screen.shopping.CartFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.android.synthetic.main.activity_shopping.*
 
 class PhoneDetailFragment : Fragment() {
 
@@ -26,11 +25,12 @@ class PhoneDetailFragment : Fragment() {
 
     lateinit var viewModel: PhoneDetailViewModel
 
-    private val detailsFragments = arrayListOf(
+    private val detailsFragments = arrayListOf<Fragment>(
         ShopFragment(),
         DetailsFragment(),
         FeatureFragment()
     )
+    private var counter = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -157,7 +157,9 @@ class PhoneDetailFragment : Fragment() {
 
     private fun setOnClickAddCart() {
         binding.btAddCart.setOnClickListener {
-            requireActivity().onBackPressedDispatcher.onBackPressed()
+            counter += 1
+            binding.badgeCart.visibility = View.VISIBLE
+            binding.badgeCart.text = counter.toString()
         }
     }
 
@@ -179,6 +181,7 @@ class PhoneDetailFragment : Fragment() {
             }
         }.attach()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

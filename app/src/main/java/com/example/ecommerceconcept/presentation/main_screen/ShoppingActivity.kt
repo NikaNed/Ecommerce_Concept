@@ -1,9 +1,15 @@
 package com.example.ecommerceconcept.presentation.main_screen
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.ActivityShoppingBinding
@@ -11,7 +17,10 @@ import com.example.ecommerceconcept.presentation.main_screen.shopping.CartFragme
 import com.example.ecommerceconcept.presentation.main_screen.shopping.FavoriteFragment
 import com.example.ecommerceconcept.presentation.main_screen.shopping.HomeFragment
 import com.example.ecommerceconcept.presentation.main_screen.shopping.ProfileFragment
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.badge.BadgeUtils
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import kotlinx.android.synthetic.main.activity_shopping.*
 import kotlinx.android.synthetic.main.badge_text.view.*
 
 class ShoppingActivity : AppCompatActivity() {
@@ -63,10 +72,4 @@ class ShoppingActivity : AppCompatActivity() {
             .commit()
     }
 
-//    private fun upDateBadgeCount(count: Int = 0) {
-//
-//       val itemView = binding.bottomNavigation.getChildAt(1) as BottomNavigationItemView
-//        notificationBadges =  LayoutInflater.from(this).inflate(R.layout.badge_text, itemView, true)
-//        notificationBadges.badge_cart.text = count.toString()
-//    }
 }

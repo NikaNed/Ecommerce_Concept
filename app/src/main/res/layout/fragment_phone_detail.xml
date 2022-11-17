@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_medium"
-            android:text="Product Detail"
+            android:text="@string/product_detail"
             android:textColor="@color/blue_dark"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +51,23 @@
             app:iconPadding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/bt_close" />
+
+        <TextView
+            android:id="@+id/badge_cart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/bg_badge_count"
+            android:fontFamily="@font/mark_pro_regular"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:visibility="gone"
+            android:layout_marginStart="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/bt_cart"
+            app:layout_constraintStart_toStartOf="@+id/bt_cart"
+            tools:text="1"
+            tools:visibility="visible"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
@@ -255,7 +272,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/mark_pro_medium"
-                android:text="Select color and capacity"
+                android:text="@string/select_color_and_capacity"
                 android:textColor="@color/blue_dark"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_processor"

@@ -14,7 +14,6 @@ import com.example.ecommerceconcept.databinding.FragmentPhoneBinding
 import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
 import com.example.ecommerceconcept.presentation.adapters.HotSalesAdapter
 import com.example.ecommerceconcept.presentation.detail_screen.PhoneDetailFragment
-import com.example.ecommerceconcept.presentation.main_screen.PhoneViewModel
 
 class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListener {
 

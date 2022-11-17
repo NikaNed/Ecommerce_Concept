@@ -1,4 +1,4 @@
-package com.example.ecommerceconcept.presentation.main_screen
+package com.example.ecommerceconcept.presentation.main_screen.categories
 
 import android.util.Log
 import androidx.lifecycle.LiveData
