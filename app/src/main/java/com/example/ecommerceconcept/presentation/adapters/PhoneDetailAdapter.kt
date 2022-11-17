@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.data.network.PhoneDetailInfo
 import com.example.ecommerceconcept.presentation.PhoneDetailDiffCallback
 import com.example.ecommerceconcept.presentation.PhoneDetailViewHolder
 
-class PhoneDetailAdapter: ListAdapter<PhoneDetailInfo, PhoneDetailViewHolder>(PhoneDetailDiffCallback) {
+class PhoneDetailAdapter: ListAdapter<String, PhoneDetailViewHolder>(PhoneDetailDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhoneDetailViewHolder {
 
@@ -19,11 +18,9 @@ class PhoneDetailAdapter: ListAdapter<PhoneDetailInfo, PhoneDetailViewHolder>(Ph
         return PhoneDetailViewHolder(view)
     }
 
-
     override fun onBindViewHolder(holder: PhoneDetailViewHolder, position: Int) {
         holder.bind(getItem(position))
     }
-
 }
 
 

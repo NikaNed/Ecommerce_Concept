@@ -21,7 +21,6 @@ class HomeFragment : Fragment() {
         ComputerFragment(),
         HealthFragment(),
         BooksFragment(),
-        AccessoriesFragment(),
         )
 
     override fun onCreateView(
@@ -74,6 +73,7 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
 
 

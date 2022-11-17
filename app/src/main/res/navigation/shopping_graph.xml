@@ -34,6 +34,23 @@
         android:name="com.example.ecommerceconcept.presentation.main_screen.shopping.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/phoneDetailFragment"
+        android:name="com.example.ecommerceconcept.presentation.detail_screen.PhoneDetailFragment"
+        android:label="PhoneDetailFragment"
+        tools:layout="@layout/fragment_phone_detail"/>
+    <fragment
+        android:id="@+id/phoneFragment"
+        android:name="com.example.ecommerceconcept.presentation.main_screen.categories.PhoneFragment"
+        android:label="PhoneFragment" >
+        <action
+            android:id="@+id/action_phoneFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.ecommerceconcept.presentation.detail_screen.DetailsFragment"
+        android:label="DetailsFragment" />
 
 
 </navigation>

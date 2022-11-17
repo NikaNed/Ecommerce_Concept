@@ -1,6 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_close"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="10dp"
+            app:backgroundTint="@color/blue_dark"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_title_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mark_pro_medium"
+            android:text="Add address"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/blue_dark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/bt_cart"
+            app:layout_constraintTop_toTopOf="@+id/bt_close" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_cart"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            app:backgroundTint="@color/orange"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_location"
+            app:iconTint="@color/white"
+            app:iconGravity="textEnd"
+            app:iconPadding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/bt_close" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/tv_my_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Cart"
+        android:fontFamily="@font/mark_pro_bold"
+        android:textSize="35dp"
+        android:layout_marginStart="25dp"
+        android:textColor="@color/blue_dark"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@id/constraintLayout"
+        android:layout_marginTop="30dp"
+        />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_my_cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_my_cart">
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_cart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/stripe"
+            android:layout_marginTop="40dp"
+            tools:listitem="@layout/rv_item_cart"
+            />
+
+        <View
+            android:id="@+id/stripe"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="200dp"
+            android:background="#33ffffff"
+            />
+
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="15sp"
+            android:fontFamily="@font/mark_pro_regular"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/stripe"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="50dp"
+            />
+
+        <TextView
+            android:id="@+id/delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delivery"
+            android:textSize="15sp"
+            android:fontFamily="@font/mark_pro_regular"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/total"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="50dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="6 000 us"
+            android:textSize="15sp"
+            android:fontFamily="@font/mark_pro_bold"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="@id/total"
+            app:layout_constraintBottom_toBottomOf="@id/total"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="30dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_delivery_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/mark_pro_bold"
+            tools:text="Free"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/delivery"
+            app:layout_constraintStart_toStartOf="@+id/tv_total_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_total_price" />
+
+        <View
+            android:id="@+id/stripe_second"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#40FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/delivery"
+            android:layout_marginTop="15dp"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt_checkout"
+            android:layout_width="310dp"
+            android:layout_height="65dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/mark_pro_bold"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@color/orange"
+            app:cornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Checkout" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/white"
+            android:indeterminateTintMode="src_atop"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

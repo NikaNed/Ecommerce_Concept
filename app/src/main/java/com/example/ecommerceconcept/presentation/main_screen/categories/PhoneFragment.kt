@@ -22,9 +22,7 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
     private val binding: FragmentPhoneBinding
         get() = _binding ?: throw RuntimeException("FragmentPhone == null")
 
-
     private lateinit var viewModel: PhoneViewModel
-//    private lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,13 +36,9 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        viewModel = ViewModelProvider(requireActivity(), viewModelFactory)[PhoneViewModel::class.java]
-
         viewModel = ViewModelProvider(this)[PhoneViewModel::class.java]
         viewModel.getHomeStoreInfo()
         viewModel.getBestSellerInfo()
-
-
 
         viewModel.homeStoreInfo.observe(viewLifecycleOwner) {
             val hotSalesAdapter = HotSalesAdapter()
@@ -66,18 +60,12 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
                 bestSellerAdapter.submitList(it)
             }
         }
-
         viewModel.progressBar.observe(viewLifecycleOwner) {
             binding.progressBar.isVisible = it
         }
     }
 
     override fun onClick(product:BestSeller) {
-//        Toast.makeText(requireContext(), "${product.title}", Toast.LENGTH_SHORT).show()
-
-//        val productNavigation =
-//            PhoneFragmentDirections.actionPhoneFragmentToPhoneDetailFragment2()
-//        findNavController().navigate(productNavigation)
 
         requireActivity().supportFragmentManager
             .beginTransaction()

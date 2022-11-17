@@ -34,7 +34,7 @@
             android:elevation="0dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            app:itemIconTint="@drawable/bottom_nav_item_background"
+            app:itemIconTint="@color/white"
             app:itemPaddingBottom="20dp"
             app:itemPaddingTop="10dp"
             app:itemRippleColor="@null"

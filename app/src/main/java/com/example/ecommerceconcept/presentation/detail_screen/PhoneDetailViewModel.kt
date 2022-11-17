@@ -5,7 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.ecommerceconcept.data.network.ApiService
-import com.example.ecommerceconcept.data.network.PhoneDetailInfo
+import com.example.ecommerceconcept.data.network.model.PhoneDetailInfo
+import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,20 +25,27 @@ class PhoneDetailViewModel : ViewModel() {
         _progressBar.value = true
     }
 
+    private var job: Job? = null
+
     fun getPhoneDetailInfo() {
-        val apiInterface = ApiService.create().getPhoneDetailInfo()
+        job = CoroutineScope(Dispatchers.IO).launch {
+            val apiInterface = ApiService.create().getPhoneDetailInfo()
+            withContext(Dispatchers.Main) {
+                apiInterface.enqueue(object : Callback<PhoneDetailInfo> {
 
-        apiInterface.enqueue(object : Callback<PhoneDetailInfo> {
+                    override fun onResponse(
+                        call: Call<PhoneDetailInfo>,
+                        response: Response<PhoneDetailInfo>
+                    ) {
+                        _detailInfo.value = (response.body())
+                        _progressBar.value = false
+                    }
 
-            override fun onResponse(call: Call<PhoneDetailInfo>, response: Response<PhoneDetailInfo>) {
-                _detailInfo.value = (response.body())
-                _progressBar.value = false
-                Log.d("TAG", "onResponse success $call ${response.body()}")
+                    override fun onFailure(call: Call<PhoneDetailInfo>, t: Throwable) {
+                        Log.d("TAG", "onFailure ${t.message}")
+                    }
+                })
             }
-
-            override fun onFailure(call: Call<PhoneDetailInfo>, t: Throwable) {
-                Log.d("TAG", "onFailure ${t.message}")
-            }
-        })
+        }
     }
 }

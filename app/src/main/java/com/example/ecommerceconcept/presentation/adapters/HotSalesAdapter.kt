@@ -19,7 +19,6 @@ class HotSalesAdapter : ListAdapter<HomeStore, HotSalesViewHolder>(HotSalesDiffC
         return HotSalesViewHolder(view)
     }
 
-
     override fun onBindViewHolder(holder: HotSalesViewHolder, position: Int) {
         holder.bind(getItem(position))
     }

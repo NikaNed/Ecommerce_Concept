@@ -1,5 +1,7 @@
 package com.example.ecommerceconcept.data.network
 
+import com.example.ecommerceconcept.data.network.model.CartInfo
+import com.example.ecommerceconcept.data.network.model.PhoneDetailInfo
 import com.example.ecommerceconcept.data.network.model.PhoneInfoDto
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -13,6 +15,9 @@ interface ApiService {
 
     @GET("6c14c560-15c6-4248-b9d2-b4508df7d4f5")
     fun getPhoneDetailInfo(): Call<PhoneDetailInfo>
+
+    @GET("53539a72-3c5f-4f30-bbb1-6ca10d42c149")
+    fun getCartInfo(): Call<CartInfo>
 
     companion object{
         private const val BASE_URL = "https://run.mocky.io/v3/"
