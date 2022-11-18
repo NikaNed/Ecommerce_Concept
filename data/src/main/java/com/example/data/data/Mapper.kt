@@ -1,6 +1,4 @@
-package com.example.ecommerceconcept.data
-
-import com.example.ecommerceconcept.domain.PhoneItem
+package com.example.data.data
 
 //class Mapper() {
 //    fun mapDtoModelToEntity(dto: PhoneInfoDto): PhoneItem {

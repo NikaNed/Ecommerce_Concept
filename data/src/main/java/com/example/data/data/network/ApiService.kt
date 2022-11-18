@@ -1,8 +1,8 @@
-package com.example.ecommerceconcept.data.network
+package com.example.data.data.network
 
-import com.example.ecommerceconcept.data.network.model.CartInfo
-import com.example.ecommerceconcept.data.network.model.PhoneDetailInfo
-import com.example.ecommerceconcept.data.network.model.PhoneInfoDto
+import com.example.data.data.network.model.CartInfo
+import com.example.data.data.network.model.PhoneDetailInfo
+import com.example.data.data.network.model.PhoneInfoDto
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

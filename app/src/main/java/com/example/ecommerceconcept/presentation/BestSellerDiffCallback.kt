@@ -1,7 +1,7 @@
 package com.example.ecommerceconcept.presentation
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.ecommerceconcept.data.network.model.BestSeller
+import com.example.data.data.network.model.BestSeller
 
 object BestSellerDiffCallback: DiffUtil.ItemCallback<BestSeller>() {
     override fun areItemsTheSame(oldItem: BestSeller, newItem: BestSeller): Boolean {

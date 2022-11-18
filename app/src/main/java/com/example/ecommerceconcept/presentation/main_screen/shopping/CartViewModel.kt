@@ -4,10 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ecommerceconcept.data.network.ApiService
-import com.example.ecommerceconcept.data.network.model.Basket
-import com.example.ecommerceconcept.data.network.model.CartInfo
-import com.example.ecommerceconcept.data.network.model.PhoneDetailInfo
+import com.example.data.data.network.ApiService
+import com.example.data.data.network.model.Basket
+import com.example.data.data.network.model.CartInfo
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback

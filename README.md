@@ -1,15 +1,12 @@
 # Ecommerce Concept
 
-![appicon](https://user-images.githubusercontent.com/96004385/188332008-1741cb5a-f9ec-4150-9274-ab5b84a6ae90.png)
-
-Weather is a weather forecast app, which uses APIs to get current weather data from the [OpenWeatherMap](https://openweathermap.org/current) 
-and to get 5 day / 3 hour forecast data from the [OpenWeatherMap](https://openweathermap.org/forecast5).
+Test project for Effective Mobile company
 
 ## Screenshots
 
-<img src="https://user-images.githubusercontent.com/96004385/194928281-79443d18-cf65-493a-aaf7-817ae06cacd1.png" height="600" width="300" hspace="40"><img src="https://user-images.githubusercontent.com/96004385/194928502-1ba5ae20-6404-412b-a6b1-651405eeada7.png" height="600" width="300" hspace="40">
-
-<img src="https://user-images.githubusercontent.com/96004385/194928535-5b8ad401-8c93-4c02-943e-9da8575cf681.png" height="600" width="300" hspace="40">
+<img src="https://user-images.githubusercontent.com/96004385/202688512-50afa4f3-8bfd-4f5d-9fe7-cbf0b0bf057b.png" height="600" width="300" hspace="40"><img src="https://user-images.githubusercontent.com/96004385/202688528-36d1d526-e4e3-4963-b4db-a35640910564.png" height="600" width="300" hspace="40">
+<img src="https://user-images.githubusercontent.com/96004385/202688524-89a4a943-4cd7-4ef7-8a87-732909b7af2d.png" height="600" width="300" hspace="40"><img src="https://user-images.githubusercontent.com/96004385/202688521-9565a360-1022-4d2e-9d53-78a3e199d21c.png" height="600" width="300" hspace="40">
+<img src="https://user-images.githubusercontent.com/96004385/202690620-d470e73f-05a8-48ea-ade0-c3bd14b9b054.mp4" height="600" width="300" hspace="40">
 
 ## Libraries/Language/Tools 🛠
 

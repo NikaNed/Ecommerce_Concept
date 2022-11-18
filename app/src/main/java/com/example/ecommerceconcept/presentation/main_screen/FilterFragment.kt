@@ -20,7 +20,7 @@ class FilterFragment : BottomSheetDialogFragment() {
         get() = _binding ?: throw RuntimeException("FragmentFilter == null")
 
     private val phoneBrand = arrayOf("Samsung", "IPhone","Xiaomi", "Motorola")
-    private val phonePrice = arrayOf("0-$500","$500-$5000","5000-$10000")
+    private val phonePrice = arrayOf("$300-$500","$500-$700","$700-$1000")
     private val phoneSize = arrayOf("4.5 to 5.5 inches","5.5 to 6.5 inches")
 
     override fun onCreateView(

@@ -1,9 +1,8 @@
 package com.example.ecommerceconcept.domain
 
-import com.example.ecommerceconcept.data.network.model.CartInfo
-import com.example.ecommerceconcept.data.network.model.PhoneDetailInfo
-import com.example.ecommerceconcept.data.network.model.PhoneInfoDto
-import retrofit2.Call
+import com.example.data.data.network.model.CartInfo
+import com.example.data.data.network.model.PhoneDetailInfo
+import com.example.data.data.network.model.PhoneInfoDto
 import retrofit2.Response
 
 interface PhoneRepository {

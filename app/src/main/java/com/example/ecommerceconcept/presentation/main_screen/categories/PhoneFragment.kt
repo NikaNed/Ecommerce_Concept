@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.data.network.model.BestSeller
+import com.example.data.data.network.model.BestSeller
 import com.example.ecommerceconcept.databinding.FragmentPhoneBinding
 import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
 import com.example.ecommerceconcept.presentation.adapters.HotSalesAdapter
