@@ -1,13 +1,13 @@
-package com.example.ecommerceconcept.presentation.main_screen
+package com.example.ecommerceconcept.presentation.main_screen.categories
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ecommerceconcept.data.network.model.BestSeller
-import com.example.ecommerceconcept.data.network.model.HomeStore
-import com.example.ecommerceconcept.data.network.model.PhoneInfoDto
-import com.example.ecommerceconcept.data.network.ApiService
+import com.example.data.data.network.model.BestSeller
+import com.example.data.data.network.model.HomeStore
+import com.example.data.data.network.model.PhoneInfoDto
+import com.example.data.data.network.ApiService
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback

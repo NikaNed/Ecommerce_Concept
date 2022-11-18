@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.ecommerceconcept.data.network.ApiService
-import com.example.ecommerceconcept.data.network.model.PhoneDetailInfo
+import com.example.data.data.network.ApiService
+import com.example.data.data.network.model.PhoneDetailInfo
 import kotlinx.coroutines.*
 import retrofit2.Call
 import retrofit2.Callback

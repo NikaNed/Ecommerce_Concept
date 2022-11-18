@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ecommerceconcept.data.network.model.BestSeller
+import com.example.data.data.network.model.BestSeller
 import com.example.ecommerceconcept.databinding.RvItemBestSellerBinding
 import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
 import com.squareup.picasso.Picasso

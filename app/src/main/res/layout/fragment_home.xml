@@ -9,17 +9,20 @@
         android:id="@+id/ll_filter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="15dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/ic_location"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:src="@drawable/ic_location"
-            android:layout_marginStart="125dp"
+            android:layout_marginStart="90dp"
             android:layout_marginTop="8dp"
+            android:src="@drawable/ic_location"
             app:layout_constraintStart_toStartOf="@+id/constraint_search"
             app:layout_constraintTop_toTopOf="@+id/constraint_search" />
 
@@ -37,25 +40,35 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/bt_drop_down"
+            android:layout_width="wrap_content"
+            android:layout_height="7dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="13dp"
+            android:src="@drawable/ic_check_filter"
+            app:layout_constraintStart_toStartOf="@+id/constraint_search"
+            app:layout_constraintTop_toTopOf="@+id/constraint_search" />
+
+        <ImageView
             android:id="@+id/bt_filter"
             android:layout_width="wrap_content"
             android:layout_height="18dp"
-            android:src="@drawable/ic_filter"
-            android:layout_marginStart="90dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="10dp"
+            android:src="@drawable/ic_filter"
             app:layout_constraintStart_toStartOf="@+id/constraint_search"
             app:layout_constraintTop_toTopOf="@+id/constraint_search" />
     </LinearLayout>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/homeHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_filter">
 
         <TextView
@@ -63,7 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_bold"
-            android:text="Select Category"
+            android:text="@string/select_category"
             android:textColor="@color/blue_dark"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,13 +87,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/mark_pro_regular"
-            android:text="view all"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="-5dp"
+            android:gravity="end"
+            android:layout_marginEnd="15dp"
+            android:text="@string/view_all"
             android:textColor="@color/orange"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
@@ -93,62 +109,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeHeader"
         app:tabIndicator="@null"
-        app:tabPadding="23dp"
         app:tabMode="auto"
+        app:tabPadding="23dp"
         app:tabRippleColor="@null"
-        app:tabTextColor="@color/blue_dark"
+        app:tabSelectedTextColor="@color/orange"
         app:tabTextAppearance="@style/tabLayout_text"
-        app:tabSelectedTextColor="@color/orange" />
+        app:tabTextColor="@color/blue_dark" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager_category"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constraint_search"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint_search" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tab_layout">
 
         <ImageView
             android:id="@+id/search_box_background"
-            android:layout_width="360dp"
-            android:layout_height="80dp"
+            android:layout_width="310dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="15dp"
             android:src="@drawable/ic_search_box_background"
-            app:layout_constraintStart_toStartOf="@+id/constraint_search"
+            app:layout_constraintEnd_toStartOf="@+id/bg_qr_code"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ic_search"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:src="@drawable/ic_search"
-            app:tint="@color/orange"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_search"
             app:layout_constraintStart_toStartOf="@+id/constraint_search"
-            app:layout_constraintTop_toTopOf="@+id/constraint_search" />
+            app:layout_constraintTop_toTopOf="@+id/constraint_search"
+            app:tint="@color/orange" />
 
         <TextView
             android:id="@+id/tv_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/mark_pro_regular"
             android:layout_marginStart="15dp"
-            android:text="Search"
+            android:fontFamily="@font/mark_pro_regular"
+            android:text="@string/search"
             android:textColor="@color/grey"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/ic_search"
             app:layout_constraintTop_toTopOf="@+id/ic_search" />
+
+        <ImageView
+            android:id="@+id/bg_qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="-5dp"
+            android:src="@drawable/ic_bg_qr_code"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/orange" />
+
+        <ImageView
+            android:id="@+id/img_qr_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="28dp"
+            android:src="@drawable/ic_qr_code"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_qr_code"
+            app:layout_constraintEnd_toEndOf="@+id/bg_qr_code"
+            app:layout_constraintStart_toStartOf="@+id/bg_qr_code"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

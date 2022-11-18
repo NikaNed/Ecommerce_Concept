@@ -40,7 +40,7 @@
             app:tabTextAppearance="@style/tabLayout_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phones"
+            android:text="@string/phones"
             android:textColor="@color/tab_text_selector"
             android:layout_marginTop="7dp"
             app:layout_constraintEnd_toEndOf="@+id/imageView"
@@ -80,7 +80,7 @@
             android:id="@+id/tv_tab2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Computer"
+            android:text="@string/computer"
             android:textColor="@color/tab_text_selector"
             app:tabTextAppearance="@style/tabLayout_text"
             android:layout_marginTop="7dp"
@@ -120,7 +120,7 @@
             android:id="@+id/tv_tab3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health"
+            android:text="@string/health"
             android:textColor="@color/tab_text_selector"
             app:tabTextAppearance="@style/tabLayout_text"
             android:layout_marginTop="7dp"
@@ -159,7 +159,7 @@
             android:id="@+id/tv_tab4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Books"
+            android:text="@string/books"
             android:textColor="@color/tab_text_selector"
             app:tabTextAppearance="@style/tabLayout_text"
             android:layout_marginTop="7dp"
@@ -175,35 +175,5 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/im5"
-            android:layout_width="71dp"
-            android:layout_height="71dp"
-            android:src="@drawable/ic_point"
-            app:tint="@color/tab_background_selector"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_cart"
-            app:layout_constraintBottom_toBottomOf="@+id/im5"
-            app:layout_constraintEnd_toEndOf="@+id/im5"
-            app:layout_constraintStart_toStartOf="@+id/im5"
-            app:layout_constraintTop_toTopOf="@+id/im5"
-            app:tint="@color/tab_icon_selector" />
-
-        <TextView
-            android:id="@+id/tv_tab5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Accessorise"
-            android:textColor="@color/tab_text_selector"
-            app:tabTextAppearance="@style/tabLayout_text"
-            android:layout_marginTop="7dp"
-            app:layout_constraintEnd_toEndOf="@+id/im5"
-            app:layout_constraintStart_toStartOf="@+id/im5"
-            app:layout_constraintTop_toBottomOf="@+id/im5"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -36,7 +36,7 @@ class CartFragment : Fragment() {
 
         viewModel.cartInfo.observe(viewLifecycleOwner) {
             with(binding) {
-                tvTotalPrice.text = it.total.toString() + "us"
+                tvTotalPrice.text = it.total.toString() + " us"
                 tvDeliveryPrice.text = it.delivery
             }
         }
