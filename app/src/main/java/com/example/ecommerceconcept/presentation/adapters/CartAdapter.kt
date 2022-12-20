@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.data.network.model.BasketDto
+import com.example.ecommerceconcept.domain.models.Basket
 import com.example.ecommerceconcept.presentation.CartDiffCallback
 import com.example.ecommerceconcept.presentation.CartViewHolder
 
-class CartAdapter : ListAdapter<BasketDto, CartViewHolder>(CartDiffCallback) {
+class CartAdapter : ListAdapter<Basket, CartViewHolder>(CartDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
 

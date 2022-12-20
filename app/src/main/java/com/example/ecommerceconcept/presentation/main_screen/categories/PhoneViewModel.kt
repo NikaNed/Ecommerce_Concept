@@ -1,10 +1,14 @@
 package com.example.ecommerceconcept.presentation.main_screen.categories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.data.network.ApiFactory
 import com.example.data.network.model.BestSellerDto
 import com.example.data.network.model.HomeStoreDto
+import com.example.ecommerceconcept.domain.models.BestSeller
+import com.example.ecommerceconcept.domain.models.HomeStore
 import com.example.ecommerceconcept.domain.usecase.GetPhoneListUseCase
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -13,12 +17,12 @@ class PhoneViewModel @Inject constructor(
     private val getPhoneListUseCase: GetPhoneListUseCase,
 ) : ViewModel() {
 
-    private val _homeStoreInfo = MutableLiveData<List<HomeStoreDto>>()
-    val homeStoreInfo: LiveData<List<HomeStoreDto>>
+    private val _homeStoreInfo = MutableLiveData<List<HomeStore>>()
+    val homeStoreInfo: LiveData<List<HomeStore>>
         get() = _homeStoreInfo
 
-    private val _bestSellerInfo = MutableLiveData<List<BestSellerDto>>()
-    val bestSellerInfo: LiveData<List<BestSellerDto>>
+    private val _bestSellerInfo = MutableLiveData<List<BestSeller>>()
+    val bestSellerInfo: LiveData<List<BestSeller>>
         get() = _bestSellerInfo
 
     private val _progressBar = MutableLiveData<Boolean>()
@@ -31,16 +35,23 @@ class PhoneViewModel @Inject constructor(
 
     private var job: Job? = null
 
+
     fun getHomeStoreInfo() {
 
         job = CoroutineScope(Dispatchers.IO).launch {
-//            val apiInterface = ApiService.create().getPhoneInfo()
 
-//            val response = getPhoneListUseCase.invoke()
-            withContext(Dispatchers.Main) {
-//                _homeStoreInfo.value = (response.body()?.home_store)
-                _progressBar.value = false
-            }
+            val response = getPhoneListUseCase.invoke()
+            _homeStoreInfo.postValue(response.home_store)
+            _progressBar.postValue(false)
+            Log.d("Tag","${response.home_store}")
+        }
+    }
+//    val apiInterface = ApiFactory.apiService.getPhoneInfo()
+//            withContext(Dispatchers.Main) {
+//                _homeStoreInfo.value = response
+//                Log.d("Tag","${response?.home_store}")
+//                _progressBar.value = false
+//            }
 
 //                apiInterface.enqueue(object : Callback<PhoneInfoDto> {
 //
@@ -58,10 +69,16 @@ class PhoneViewModel @Inject constructor(
 //                    }
 //                })
 
-        }
-    }
 
     fun getBestSellerInfo() {
+
+        job = CoroutineScope(Dispatchers.IO).launch {
+
+            val response = getPhoneListUseCase.invoke()
+            _bestSellerInfo.postValue(response.best_seller)
+            _progressBar.postValue(false)
+            Log.d("Tag","${response.best_seller}")
+        }
 //
 //        job = CoroutineScope(Dispatchers.IO).launch {
 //            val apiInterface = ApiService.create().getPhoneInfo()

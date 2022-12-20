@@ -37,7 +37,7 @@ class PhoneDetailFragment : Fragment() {
         (requireActivity().application as EcommerceApp).component
     }
 
-    private val detailsFragments = arrayListOf<Fragment>(
+    private val detailsFragments = arrayListOf(
         ShopFragment(),
         DetailsFragment(),
         FeatureFragment()
@@ -45,7 +45,7 @@ class PhoneDetailFragment : Fragment() {
     private var counter = 0
 
     override fun onAttach(context: Context) {
-//        component.inject(this)
+        component.inject(this)
         super.onAttach(context)
     }
 

@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.data.network.model.BestSellerDto
+import com.example.ecommerceconcept.domain.models.BestSeller
 import com.example.ecommerceconcept.presentation.BestSellerDiffCallback
 import com.example.ecommerceconcept.presentation.BestSellerViewHolder
 
 class BestSellerAdapter (private val listener: BestSellerListener):
-    ListAdapter<BestSellerDto, BestSellerViewHolder>(BestSellerDiffCallback) {
+    ListAdapter<BestSeller, BestSellerViewHolder>(BestSellerDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestSellerViewHolder {
 
@@ -25,7 +25,7 @@ class BestSellerAdapter (private val listener: BestSellerListener):
     }
 
     interface BestSellerListener{
-        fun onClick(product: BestSellerDto)
+        fun onClick(product: BestSeller)
     }
 }
 

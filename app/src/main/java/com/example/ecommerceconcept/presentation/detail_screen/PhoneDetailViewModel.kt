@@ -3,18 +3,20 @@ package com.example.ecommerceconcept.presentation.detail_screen
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.data.network.ApiService
-import com.example.data.network.model.PhoneDetailInfoDto
+import com.example.ecommerceconcept.domain.models.PhoneDetailInfo
 import com.example.ecommerceconcept.domain.usecase.GetPhoneDetailUseCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PhoneDetailViewModel @Inject constructor(
     private val getPhoneDetailUseCase: GetPhoneDetailUseCase
 ): ViewModel() {
 
-    private val _detailInfo = MutableLiveData<PhoneDetailInfoDto>()
-    val detailInfo: LiveData<PhoneDetailInfoDto>
+    private val _detailInfo = MutableLiveData<PhoneDetailInfo>()
+    val detailInfo: LiveData<PhoneDetailInfo>
         get() = _detailInfo
 
     private val _progressBar = MutableLiveData<Boolean>()
@@ -28,6 +30,13 @@ class PhoneDetailViewModel @Inject constructor(
     private var job: Job? = null
 
     fun getPhoneDetailInfo() {
+
+        job = CoroutineScope(Dispatchers.IO).launch {
+
+            val response = getPhoneDetailUseCase.invoke()
+            _detailInfo.postValue(response)
+            _progressBar.postValue(false)
+        }
 //        job = CoroutineScope(Dispatchers.IO).launch {
 //            val apiInterface = ApiService.create().getPhoneDetailInfo()
 //            withContext(Dispatchers.Main) {

@@ -1,18 +1,12 @@
 package com.example.data.mapper
 
-import com.example.data.network.model.BestSellerDto
-import com.example.data.network.model.HomeStoreDto
-import com.example.data.network.model.PhoneInfoDto
-import com.example.ecommerceconcept.domain.models.BestSeller
-import com.example.ecommerceconcept.domain.models.HomeStore
-import com.example.ecommerceconcept.domain.models.PhoneInfo
+import com.example.data.network.model.*
+import com.example.ecommerceconcept.domain.models.*
 import javax.inject.Inject
 
-class PhoneMapper
-@Inject constructor()
-{
+class PhoneMapper @Inject constructor() {
 
-    fun mapTDtoToEntityPhoneInfo(dto: PhoneInfoDto): PhoneInfo {
+    fun mapToDtoToEntityPhoneInfo(dto: PhoneInfoDto): PhoneInfo {
         return PhoneInfo(
             best_seller = mapDtoToEntityBestSeller(dto.best_seller),
             home_store = mapDtoToEntityHomeStore(dto.home_store)
@@ -45,31 +39,36 @@ class PhoneMapper
         }
     }
 
-    //    fun PhoneInfoDto.toDomainModel(): PhoneInfo = PhoneInfo(
-//        best_seller = this.best_seller.toDomainBestSeller(),
-//        home_store = this.home_store.toDomainHomeStore()
-//    )
+    fun mapDtoToEntityDetailInfo(dto: PhoneDetailInfoDto) = PhoneDetailInfo(
+        CPU = dto.CPU,
+        camera = dto.camera,
+        capacity = dto.capacity.orEmpty(),
+        color = dto.color.orEmpty(),
+        id = dto.id,
+        images = dto.images.orEmpty(),
+        isFavorites = dto.isFavorites,
+        price = dto.price,
+        rating = dto.rating,
+        sd = dto.sd,
+        ssd = dto.ssd,
+        title = dto.title
+    )
 
-//
-//    fun List<BestSellerDto>.toDomainBestSeller(): List<BestSeller> = this.map {
-//        BestSeller(
-//            discount_price = it.discount_price,
-//            id = it.id,
-//            is_favorites = it.is_favorites,
-//            picture = it.picture,
-//            price_without_discount = it.price_without_discount,
-//            title = it.title
-//        )
-//    }
-//
-//    fun List<HomeStoreDto>.toDomainHomeStore(): List<HomeStore> = this.map {
-//        HomeStore(
-//          id = it.id,
-//            is_buy = it.is_buy,
-//            is_new = it.is_new,
-//            picture = it.picture,
-//            subtitle = it.subtitle,
-//            title = it.title
-//        )
-//    }
+    fun mapDtoToEntityCart(dto: CartInfoDto) = CartInfo(
+        basket = mapDtoToEntityBasket(dto.basket),
+        delivery = dto.delivery,
+        id = dto.id,
+        total = dto.total
+    )
+
+    private fun mapDtoToEntityBasket(dto: List<BasketDto>): List<Basket> {
+        return dto.map {
+            Basket(
+               id = it.id,
+               images = it.images,
+               price = it.price,
+               title = it.title
+            )
+        }
+    }
 }

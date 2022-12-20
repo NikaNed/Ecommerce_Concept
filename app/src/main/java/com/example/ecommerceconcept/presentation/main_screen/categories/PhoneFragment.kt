@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.data.network.model.BestSellerDto
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentPhoneBinding
+import com.example.ecommerceconcept.domain.models.BestSeller
 import com.example.ecommerceconcept.presentation.EcommerceApp
 import com.example.ecommerceconcept.presentation.ViewModelFactory
 import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
@@ -84,7 +85,7 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
         }
     }
 
-    override fun onClick(product:BestSellerDto) {
+    override fun onClick(product: BestSeller) {
 
         requireActivity().supportFragmentManager
             .beginTransaction()
