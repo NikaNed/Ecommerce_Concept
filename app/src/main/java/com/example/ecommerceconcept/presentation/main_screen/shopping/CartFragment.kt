@@ -1,5 +1,6 @@
 package com.example.ecommerceconcept.presentation.main_screen.shopping
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerceconcept.databinding.FragmentCartBinding
+import com.example.ecommerceconcept.presentation.EcommerceApp
+import com.example.ecommerceconcept.presentation.ViewModelFactory
 import com.example.ecommerceconcept.presentation.adapters.CartAdapter
+import javax.inject.Inject
 
 class CartFragment : Fragment() {
 
@@ -18,6 +22,17 @@ class CartFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("CartFragment == null")
 
     lateinit var viewModel: CartViewModel
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val component by lazy {
+        (requireActivity().application as EcommerceApp).component
+    }
+
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +46,10 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[CartViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[CartViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity(),
+            viewModelFactory)[CartViewModel::class.java]
+
         viewModel.getCartInfo()
 
         viewModel.cartInfo.observe(viewLifecycleOwner) {

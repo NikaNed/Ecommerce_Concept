@@ -1,5 +1,6 @@
 package com.example.ecommerceconcept.presentation.main_screen.categories
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,15 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.data.network.model.BestSellerDto
 import com.example.ecommerceconcept.R
-import com.example.data.data.network.model.BestSeller
 import com.example.ecommerceconcept.databinding.FragmentPhoneBinding
+import com.example.ecommerceconcept.presentation.EcommerceApp
+import com.example.ecommerceconcept.presentation.ViewModelFactory
 import com.example.ecommerceconcept.presentation.adapters.BestSellerAdapter
 import com.example.ecommerceconcept.presentation.adapters.HotSalesAdapter
 import com.example.ecommerceconcept.presentation.detail_screen.PhoneDetailFragment
+import javax.inject.Inject
 
 class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListener {
 
@@ -21,7 +25,19 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
     private val binding: FragmentPhoneBinding
         get() = _binding ?: throw RuntimeException("FragmentPhone == null")
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
     private lateinit var viewModel: PhoneViewModel
+
+    private val component by lazy {
+        (requireActivity().application as EcommerceApp).component
+    }
+
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +51,11 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[PhoneViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[PhoneViewModel::class.java]
+
+        viewModel = ViewModelProvider(requireActivity(),
+            viewModelFactory)[PhoneViewModel::class.java]
+
         viewModel.getHomeStoreInfo()
         viewModel.getBestSellerInfo()
 
@@ -64,7 +84,7 @@ class PhoneFragment : BaseCategoryFragment(), BestSellerAdapter.BestSellerListen
         }
     }
 
-    override fun onClick(product:BestSeller) {
+    override fun onClick(product:BestSellerDto) {
 
         requireActivity().supportFragmentManager
             .beginTransaction()

@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.data.data.network.model.HomeStore
+import com.example.data.network.model.HomeStoreDto
 import com.example.ecommerceconcept.presentation.HotSalesDiffCallback
 import com.example.ecommerceconcept.presentation.HotSalesViewHolder
 
-class HotSalesAdapter : ListAdapter<HomeStore, HotSalesViewHolder>(HotSalesDiffCallback) {
+class HotSalesAdapter : ListAdapter<HomeStoreDto, HotSalesViewHolder>(HotSalesDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotSalesViewHolder {
 
