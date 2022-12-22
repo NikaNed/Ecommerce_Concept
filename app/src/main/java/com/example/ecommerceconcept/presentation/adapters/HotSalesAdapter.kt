@@ -4,10 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.data.network.model.HomeStoreDto
 import com.example.ecommerceconcept.domain.models.HomeStore
-import com.example.ecommerceconcept.presentation.HotSalesDiffCallback
-import com.example.ecommerceconcept.presentation.HotSalesViewHolder
+import com.example.ecommerceconcept.presentation.diff_callback.HotSalesDiffCallback
+import com.example.ecommerceconcept.presentation.view_holder.HotSalesViewHolder
 
 class HotSalesAdapter : ListAdapter<HomeStore, HotSalesViewHolder>(HotSalesDiffCallback) {
 

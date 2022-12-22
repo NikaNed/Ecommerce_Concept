@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.ecommerceconcept.presentation.PhoneDetailDiffCallback
-import com.example.ecommerceconcept.presentation.PhoneDetailViewHolder
+import com.example.ecommerceconcept.presentation.diff_callback.PhoneDetailDiffCallback
+import com.example.ecommerceconcept.presentation.view_holder.PhoneDetailViewHolder
 
 class PhoneDetailAdapter: ListAdapter<String, PhoneDetailViewHolder>(PhoneDetailDiffCallback) {
 
