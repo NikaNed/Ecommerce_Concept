@@ -18,7 +18,7 @@
         tools:targetApi="33">
 
         <activity
-            android:name=".presentation.screen.main_screen.ShoppingActivity"
+            android:name=".presentation.activity.ShoppingActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashScreen">

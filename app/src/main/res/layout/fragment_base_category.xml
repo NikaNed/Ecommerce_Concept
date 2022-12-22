@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.screen.main_screen.categories.BaseCategoryFragment">
+    tools:context=".presentation.fragments.main_screen.categories.BaseCategoryFragment">
 
     <TextView
         android:id="@+id/textView"
