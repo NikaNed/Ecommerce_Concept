@@ -6,10 +6,10 @@ import com.example.ecommerceconcept.domain.models.PhoneInfo
 
 interface PhoneRepository {
 
-    suspend fun getPhoneInfoList(): PhoneInfo
+    suspend fun getPhoneInfoList(): PhoneInfo?
 
-    suspend fun getPhoneDetailInfo(): PhoneDetailInfo
+    suspend fun getPhoneDetailInfo(): PhoneDetailInfo?
 
-    suspend fun getCartInfo(): CartInfo
+    suspend fun getCartInfo(): CartInfo?
 
 }

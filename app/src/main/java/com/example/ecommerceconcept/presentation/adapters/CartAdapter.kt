@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.domain.models.Basket
-import com.example.ecommerceconcept.presentation.CartDiffCallback
-import com.example.ecommerceconcept.presentation.CartViewHolder
+import com.example.ecommerceconcept.presentation.diff_callback.CartDiffCallback
+import com.example.ecommerceconcept.presentation.view_holder.CartViewHolder
 
 class CartAdapter : ListAdapter<Basket, CartViewHolder>(CartDiffCallback) {
 
