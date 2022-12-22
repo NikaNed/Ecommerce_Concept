@@ -1,18 +1,22 @@
 package com.example.ecommerceconcept.presentation.main_screen.shopping
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.data.data.network.ApiService
-import com.example.data.data.network.model.Basket
-import com.example.data.data.network.model.CartInfo
-import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.data.network.model.BasketDto
+import com.example.data.network.model.CartInfoDto
+import com.example.ecommerceconcept.domain.models.Basket
+import com.example.ecommerceconcept.domain.models.CartInfo
+import com.example.ecommerceconcept.domain.usecase.GetCartUseCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CartViewModel : ViewModel() {
+class CartViewModel @Inject constructor(
+    private val getCartUseCase: GetCartUseCase,
+) : ViewModel() {
 
     private val _cartInfo = MutableLiveData<CartInfo>()
     val cartInfo: LiveData<CartInfo>
@@ -29,26 +33,37 @@ class CartViewModel : ViewModel() {
     init {
         _progressBar.value = true
     }
+
     private var job: Job? = null
 
     fun getCartInfo() {
 
         job = CoroutineScope(Dispatchers.IO).launch {
-            val apiInterface = ApiService.create().getCartInfo()
-            withContext(Dispatchers.Main) {
-                apiInterface.enqueue(object : Callback<CartInfo> {
 
-                    override fun onResponse(call: Call<CartInfo>, response: Response<CartInfo>) {
-                        _cartInfo.value = (response.body())
-                        _basketInfo.value = (response.body()?.basket)
-                        _progressBar.value = false
-                    }
-
-                    override fun onFailure(call: Call<CartInfo>, t: Throwable) {
-                        Log.d("TAG", "onFailure ${t.message}")
-                    }
-                })
-            }
+            val response = getCartUseCase.invoke()
+            _cartInfo.postValue(response)
+            _basketInfo.postValue(response.basket)
+            _progressBar.postValue(false)
         }
+//        job = CoroutineScope(Dispatchers.IO).launch {
+//            val apiInterface = ApiService.create().getCartInfo()
+//            withContext(Dispatchers.Main) {
+//                apiInterface.enqueue(object : Callback<CartInfoDto> {
+//
+//                    override fun onResponse(
+//                        call: Call<CartInfoDto>,
+//                        response: Response<CartInfoDto>,
+//                    ) {
+//                        _cartInfo.value = (response.body())
+//                        _basketInfo.value = (response.body()?.basket)
+//                        _progressBar.value = false
+//                    }
+//
+//                    override fun onFailure(call: Call<CartInfoDto>, t: Throwable) {
+//                        Log.d("TAG", "onFailure ${t.message}")
+//                    }
+//                })
+//            }
+//        }
     }
 }

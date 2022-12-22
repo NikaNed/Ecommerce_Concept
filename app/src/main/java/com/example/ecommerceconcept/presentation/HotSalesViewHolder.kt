@@ -4,8 +4,9 @@ import android.annotation.SuppressLint
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.data.network.model.HomeStore
+import com.example.data.network.model.HomeStoreDto
 import com.example.ecommerceconcept.databinding.RvItemHotSalesBinding
+import com.example.ecommerceconcept.domain.models.HomeStore
 import com.squareup.picasso.Picasso
 
 class HotSalesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -16,8 +17,5 @@ class HotSalesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         tvTitlePhone.text = item.title
         tvSubtitlePhone.text = item.subtitle
         Picasso.get().load(item.picture).into(imAd)
-        if(item.is_new == null){
-            imNew.isVisible = false
-        }
     }
 }

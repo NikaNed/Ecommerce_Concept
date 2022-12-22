@@ -1,17 +1,19 @@
 package com.example.ecommerceconcept.presentation.detail_screen
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.data.data.network.ApiService
-import com.example.data.data.network.model.PhoneDetailInfo
-import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.ecommerceconcept.domain.models.PhoneDetailInfo
+import com.example.ecommerceconcept.domain.usecase.GetPhoneDetailUseCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PhoneDetailViewModel : ViewModel() {
+class PhoneDetailViewModel @Inject constructor(
+    private val getPhoneDetailUseCase: GetPhoneDetailUseCase
+): ViewModel() {
 
     private val _detailInfo = MutableLiveData<PhoneDetailInfo>()
     val detailInfo: LiveData<PhoneDetailInfo>
@@ -28,24 +30,31 @@ class PhoneDetailViewModel : ViewModel() {
     private var job: Job? = null
 
     fun getPhoneDetailInfo() {
+
         job = CoroutineScope(Dispatchers.IO).launch {
-            val apiInterface = ApiService.create().getPhoneDetailInfo()
-            withContext(Dispatchers.Main) {
-                apiInterface.enqueue(object : Callback<PhoneDetailInfo> {
 
-                    override fun onResponse(
-                        call: Call<PhoneDetailInfo>,
-                        response: Response<PhoneDetailInfo>
-                    ) {
-                        _detailInfo.value = (response.body())
-                        _progressBar.value = false
-                    }
-
-                    override fun onFailure(call: Call<PhoneDetailInfo>, t: Throwable) {
-                        Log.d("TAG", "onFailure ${t.message}")
-                    }
-                })
-            }
+            val response = getPhoneDetailUseCase.invoke()
+            _detailInfo.postValue(response)
+            _progressBar.postValue(false)
         }
+//        job = CoroutineScope(Dispatchers.IO).launch {
+//            val apiInterface = ApiService.create().getPhoneDetailInfo()
+//            withContext(Dispatchers.Main) {
+//                apiInterface.enqueue(object : Callback<PhoneDetailInfoDto> {
+//
+//                    override fun onResponse(
+//                        call: Call<PhoneDetailInfoDto>,
+//                        response: Response<PhoneDetailInfoDto>
+//                    ) {
+//                        _detailInfo.value = (response.body())
+//                        _progressBar.value = false
+//                    }
+//
+//                    override fun onFailure(call: Call<PhoneDetailInfoDto>, t: Throwable) {
+//                        Log.d("TAG", "onFailure ${t.message}")
+//                    }
+//                })
+//            }
+//        }
     }
 }

@@ -13,8 +13,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".presentation.EcommerceApp"
         android:theme="@style/Theme.EcommerceConcept"
-        tools:targetApi="31">
+        tools:targetApi="33">
 
         <activity
             android:name=".presentation.main_screen.ShoppingActivity"

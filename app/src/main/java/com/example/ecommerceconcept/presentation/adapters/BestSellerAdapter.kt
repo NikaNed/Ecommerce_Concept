@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.example.ecommerceconcept.R
-import com.example.data.data.network.model.BestSeller
+import com.example.ecommerceconcept.domain.models.BestSeller
 import com.example.ecommerceconcept.presentation.BestSellerDiffCallback
 import com.example.ecommerceconcept.presentation.BestSellerViewHolder
 

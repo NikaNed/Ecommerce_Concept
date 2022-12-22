@@ -1,9 +1,12 @@
 package com.example.ecommerceconcept.presentation.detail_screen
 
+import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.RatingBar
 import androidx.core.view.isVisible
@@ -11,11 +14,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentPhoneDetailBinding
+import com.example.ecommerceconcept.presentation.EcommerceApp
 import com.example.ecommerceconcept.presentation.adapters.DetailViewpagerAdapter
 import com.example.ecommerceconcept.presentation.adapters.PhoneDetailAdapter
+import com.example.ecommerceconcept.presentation.ViewModelFactory
 import com.example.ecommerceconcept.presentation.main_screen.shopping.CartFragment
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_shopping.*
+import javax.inject.Inject
 
 class PhoneDetailFragment : Fragment() {
 
@@ -25,12 +30,24 @@ class PhoneDetailFragment : Fragment() {
 
     lateinit var viewModel: PhoneDetailViewModel
 
-    private val detailsFragments = arrayListOf<Fragment>(
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val component by lazy {
+        (requireActivity().application as EcommerceApp).component
+    }
+
+    private val detailsFragments = arrayListOf(
         ShopFragment(),
         DetailsFragment(),
         FeatureFragment()
     )
     private var counter = 0
+
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,8 +60,9 @@ class PhoneDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        viewModel = ViewModelProvider(this)[PhoneDetailViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity(),
+            viewModelFactory)[PhoneDetailViewModel::class.java]
+//        viewModel = ViewModelProvider(this)[PhoneDetailViewModel::class.java]
         viewModel.getPhoneDetailInfo()
 
         observeViewModel()
