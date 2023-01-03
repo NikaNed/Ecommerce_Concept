@@ -1,8 +1,8 @@
-package com.example.data.network.api
+package com.example.ecommerceconcept.data.network.api
 
-import com.example.data.network.model.CartInfoDto
-import com.example.data.network.model.PhoneDetailInfoDto
-import com.example.data.network.model.PhoneInfoDto
+import com.example.ecommerceconcept.data.network.model.CartInfoDto
+import com.example.ecommerceconcept.data.network.model.PhoneDetailInfoDto
+import com.example.ecommerceconcept.data.network.model.PhoneInfoDto
 import retrofit2.http.GET
 
 interface ApiService {

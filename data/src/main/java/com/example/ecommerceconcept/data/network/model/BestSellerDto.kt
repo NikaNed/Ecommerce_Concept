@@ -1,7 +1,7 @@
-package com.example.data.network.model
+package com.example.ecommerceconcept.data.network.model
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+
 
 data class BestSellerDto(
     @SerializedName("discount_price")
@@ -16,4 +16,4 @@ data class BestSellerDto(
     val price_without_discount: Int,
     @SerializedName("title")
     val title: String
-) : Serializable
+)

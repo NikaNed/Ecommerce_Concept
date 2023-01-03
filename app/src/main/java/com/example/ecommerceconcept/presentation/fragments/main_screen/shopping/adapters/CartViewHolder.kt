@@ -3,7 +3,7 @@ package com.example.ecommerceconcept.presentation.fragments.main_screen.shopping
 import android.annotation.SuppressLint
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.network.model.BasketDto
+import com.example.ecommerceconcept.data.network.model.BasketDto
 import com.example.ecommerceconcept.databinding.RvItemCartBinding
 import com.example.ecommerceconcept.domain.models.Basket
 import com.squareup.picasso.Picasso

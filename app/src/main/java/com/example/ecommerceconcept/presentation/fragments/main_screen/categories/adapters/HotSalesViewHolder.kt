@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.network.model.HomeStoreDto
+import com.example.ecommerceconcept.data.network.model.HomeStoreDto
 import com.example.ecommerceconcept.databinding.RvItemHotSalesBinding
 import com.example.ecommerceconcept.domain.models.HomeStore
 import com.squareup.picasso.Picasso
