@@ -1,6 +1,6 @@
-package com.example.data.mapper
+package com.example.ecommerceconcept.data.mapper
 
-import com.example.data.network.model.*
+import com.example.ecommerceconcept.data.network.model.*
 import com.example.ecommerceconcept.domain.models.*
 import javax.inject.Inject
 

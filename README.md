@@ -16,6 +16,7 @@ Test project for Effective Mobile company
 <li><a href="https://developer.android.com/topic/libraries/view-binding">View Binding</a></li>
 <li><a href="https://developer.android.com/kotlin/coroutines">Kotlin coroutines</a></li>
 <li><a href="https://square.github.io/retrofit/">Retrofit</a></li>
+<li><a href="https://developer.android.com/training/dependency-injection/dagger-basics">Dagger2</a></li>
 <li><a href="https://github.com/square/okhttp">OkHttp</a></li>
 <li><a href="https://github.com/google/gson">GSON</a></li>
 <li><a href="https://github.com/square/picasso">Picasso</a></li>

@@ -1,7 +1,7 @@
 package com.example.ecommerceconcept.presentation.fragments.main_screen.categories.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.data.network.model.HomeStoreDto
+import com.example.ecommerceconcept.data.network.model.HomeStoreDto
 import com.example.ecommerceconcept.domain.models.HomeStore
 
 object HotSalesDiffCallback: DiffUtil.ItemCallback<HomeStore>() {
