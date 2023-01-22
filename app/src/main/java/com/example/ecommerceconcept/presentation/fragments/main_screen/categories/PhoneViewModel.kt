@@ -26,10 +26,6 @@ class PhoneViewModel @Inject constructor(
     val progressBar: LiveData<Boolean>
         get() = _progressBar
 
-//    init {
-//        _progressBar.value = true
-//    }
-
     fun getHomeStoreInfo() {
 
         viewModelScope.launch {
