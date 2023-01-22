@@ -143,7 +143,6 @@ class PhoneDetailFragment : Fragment() {
                 icChecked2.visibility = View.VISIBLE
             }
         }
-
     }
 
     private fun selectCapacity(gb: Boolean) {

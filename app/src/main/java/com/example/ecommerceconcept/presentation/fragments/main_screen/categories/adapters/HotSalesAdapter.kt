@@ -25,3 +25,5 @@ class HotSalesAdapter : ListAdapter<HomeStore, HotSalesViewHolder>(HotSalesDiffC
 
 
 
+
+

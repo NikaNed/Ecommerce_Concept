@@ -22,27 +22,22 @@ class ShoppingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-         val cartFragment = CartFragment()
-         val homeFragment = HomeFragment()
-         val favoriteFragment = FavoriteFragment()
-         val profileFragment = ProfileFragment()
-
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.homeFragment -> {
-                    setUpCurrentFragment(homeFragment)
+                    setUpCurrentFragment(HomeFragment())
                 }
 
                 R.id.cartFragment -> {
-                    setUpCurrentFragment(cartFragment)
+                    setUpCurrentFragment(CartFragment())
                 }
 
                 R.id.favoriteFragment -> {
-                    setUpCurrentFragment(favoriteFragment)
+                    setUpCurrentFragment(FavoriteFragment())
                 }
 
                 R.id.profileFragment -> {
-                    setUpCurrentFragment(profileFragment)
+                    setUpCurrentFragment(ProfileFragment())
                 }
             }
             true

@@ -19,7 +19,7 @@ class PhoneRepositoryImpl @Inject constructor(
             val response = apiService.getPhoneInfo()
             mapper.mapToDtoToEntityPhoneInfo(response)
         } catch (e: Exception) {
-            Log.d("TAG", e.message!!)
+            Log.d("TAG", e.message.toString())
             null
         }
     }
@@ -29,7 +29,7 @@ class PhoneRepositoryImpl @Inject constructor(
             val responseDetail = apiService.getPhoneDetailInfo()
             mapper.mapDtoToEntityDetailInfo(responseDetail)
         } catch (e: Exception) {
-            Log.d("TAG", e.message!!)
+            Log.d("TAG", e.message.toString())
             null
         }
     }
@@ -39,7 +39,7 @@ class PhoneRepositoryImpl @Inject constructor(
             val responseCart = apiService.getCartInfo()
             mapper.mapDtoToEntityCart(responseCart)
         } catch (e: Exception) {
-            Log.d("TAG", e.message!!)
+            Log.d("TAG", e.message.toString())
             null
         }
     }

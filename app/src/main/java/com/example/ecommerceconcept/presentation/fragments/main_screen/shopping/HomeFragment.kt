@@ -9,24 +9,14 @@ import androidx.navigation.fragment.findNavController
 import com.example.ecommerceconcept.R
 import com.example.ecommerceconcept.databinding.FragmentHomeBinding
 import com.example.ecommerceconcept.presentation.fragments.main_screen.categories.adapters.CategoryViewpagerAdapter
-import com.example.ecommerceconcept.presentation.fragments.main_screen.categories.BooksFragment
-import com.example.ecommerceconcept.presentation.fragments.main_screen.categories.ComputerFragment
-import com.example.ecommerceconcept.presentation.fragments.main_screen.categories.HealthFragment
-import com.example.ecommerceconcept.presentation.fragments.main_screen.categories.PhoneFragment
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding
         get() = _binding ?: throw RuntimeException("HomeFragment == null")
-
-    private val categoriesFragments = arrayListOf<Fragment>(
-        PhoneFragment(),
-        ComputerFragment(),
-        HealthFragment(),
-        BooksFragment(),
-        )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,10 +39,13 @@ class HomeFragment : Fragment() {
 
     private fun setupViewPager() {
 
-        val headerView = LayoutInflater.from(requireContext()).inflate(R.layout.custom_tab, null,false)
+        val headerView =
+            LayoutInflater.from(requireContext()).inflate(R.layout.custom_tab, null, false)
 
-        val viewPagerAdapter = CategoryViewpagerAdapter(categoriesFragments, childFragmentManager, lifecycle)
+        val viewPagerAdapter =
+            CategoryViewpagerAdapter(childFragmentManager, viewLifecycleOwner.lifecycle)
         binding.viewPagerCategory.adapter = viewPagerAdapter
+
         TabLayoutMediator(binding.tabLayout, binding.viewPagerCategory) { tab, position ->
             when (position) {
                 0 -> {
@@ -67,9 +60,6 @@ class HomeFragment : Fragment() {
                 3 -> {
                     tab.customView = headerView.findViewById(R.id.tab4)
                 }
-                4 -> {
-                    tab.customView = headerView.findViewById(R.id.tab5)
-                }
             }
         }.attach()
     }
@@ -80,6 +70,7 @@ class HomeFragment : Fragment() {
     }
 
 }
+
 
 
 
