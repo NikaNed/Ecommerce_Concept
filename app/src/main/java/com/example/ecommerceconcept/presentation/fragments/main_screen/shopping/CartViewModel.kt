@@ -37,21 +37,16 @@ class CartViewModel @Inject constructor(
         viewModelScope.launch {
             _progressBar.value = true
 
-            withContext(Dispatchers.IO) {
                 val response = getCartUseCase.invoke()
                 if (response == null) {
-                    withContext(Dispatchers.Main) {
                         _error.postValue("Data not found")
                         _progressBar.postValue(false)
-                    }
+
                 } else {
-                    withContext(Dispatchers.Main) {
                         _cartInfo.postValue(response)
                         _basketInfo.postValue(response.basket)
                         _progressBar.postValue(false)
-                    }
                 }
-            }
         }
     }
 }

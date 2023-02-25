@@ -1,5 +1,6 @@
 package com.example.ecommerceconcept.presentation.fragments.main_screen.categories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,46 +27,37 @@ class PhoneViewModel @Inject constructor(
     val progressBar: LiveData<Boolean>
         get() = _progressBar
 
+    private val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+        Log.d("Tag", "Exception caught $throwable")
+    }
+
     fun getHomeStoreInfo() {
 
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionHandler) {
+
             _progressBar.value = true
 
-            withContext(Dispatchers.IO) {
-                val response = getPhoneListUseCase.invoke()
-                if (response == null) {
-                    withContext(Dispatchers.Main) {
-//                        _error.postValue("Data not found")
-                        _progressBar.postValue(false)
-                    }
-                } else {
-                    withContext(Dispatchers.Main) {
-                        _homeStoreInfo.postValue(response.home_store)
-                        _progressBar.postValue(false)
-                    }
-                }
+            val response = getPhoneListUseCase.invoke()
+            if (response == null) {
+                _progressBar.value = false
+            } else {
+                _homeStoreInfo.value = response.home_store
+                _progressBar.value = false
             }
         }
     }
 
     fun getBestSellerInfo() {
 
-        viewModelScope.launch {
+        viewModelScope.launch(exceptionHandler) {
             _progressBar.value = true
 
-            withContext(Dispatchers.IO) {
-                val response = getPhoneListUseCase.invoke()
-                if (response == null) {
-                    withContext(Dispatchers.Main) {
-//                        _error.postValue("Data not found")
-                        _progressBar.postValue(false)
-                    }
-                } else {
-                    withContext(Dispatchers.Main) {
-                        _bestSellerInfo.postValue(response.best_seller)
-                        _progressBar.postValue(false)
-                    }
-                }
+            val response = getPhoneListUseCase.invoke()
+            if (response == null) {
+                _progressBar.value = false
+            } else {
+                _bestSellerInfo.value = response.best_seller
+                _progressBar.value = false
             }
         }
     }

@@ -32,7 +32,7 @@ class PhoneRepositoryImpl @Inject constructor(
             Log.d("TAG", e.message.toString())
             null
         }
-    }
+    } 
 
     override suspend fun getCartInfo(): CartInfo? {
         return try {

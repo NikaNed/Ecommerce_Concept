@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.ecommerceconcept.domain.models.PhoneDetailInfo
 import com.example.ecommerceconcept.domain.usecase.GetPhoneDetailUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -29,20 +30,13 @@ class PhoneDetailViewModel @Inject constructor(
         viewModelScope.launch {
 
             _progressBar.value = true
+            val response = getPhoneDetailUseCase.invoke()
+            if (response == null) {
+                _progressBar.value = false
+            } else {
+                _detailInfo.value = response
+                _progressBar.value = false
 
-            withContext(Dispatchers.IO) {
-                val response = getPhoneDetailUseCase.invoke()
-                if (response == null) {
-                    withContext(Dispatchers.Main) {
-//                        _error.postValue("Data not found")
-                        _progressBar.postValue(false)
-                    }
-                } else {
-                    withContext(Dispatchers.Main) {
-                        _detailInfo.postValue(response)
-                        _progressBar.postValue(false)
-                    }
-                }
             }
         }
     }
